@@ -1,0 +1,91 @@
+<%- include('../layout/header') %>
+
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1 style="color: var(--primary);">Admin Dashboard</h1>
+        <a href="/admin/lawyer/add" class="btn btn-primary">+ Add New Lawyer</a>
+    </div>
+
+    <div class="grid grid-cols-2" style="margin-bottom: 3rem;">
+        <div class="card">
+            <h3 class="card-header">Total Lawyers</h3>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--text-main);"><%= lawyers.length %></p>
+        </div>
+        <div class="card">
+            <h3 class="card-header">Total Appointments</h3>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--text-main);"><%= appointments.length %></p>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 3rem;">
+        <h2 class="card-header">Manage Lawyers</h2>
+        <% if (lawyers.length === 0) { %>
+            <p style="color: var(--text-muted); padding: 1rem 0;">No lawyers have been added yet.</p>
+        <% } else { %>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                            <th>Experience</th>
+                            <th>Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% lawyers.forEach(l => { %>
+                            <tr>
+                                <td><strong><%= l.name %></strong><br><small style="color: var(--text-muted);"><%= l.email %></small></td>
+                                <td><%= l.specialization %></td>
+                                <td><%= l.experience %> years</td>
+                                <td><%= l.location %></td>
+                                <td>
+                                    <form action="/admin/lawyer/remove/<%= l._id %>" method="POST" onsubmit="return confirm('Are you sure you want to remove this lawyer?');" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="card">
+        <h2 class="card-header">All Appointments</h2>
+        <% if (appointments.length === 0) { %>
+            <p style="color: var(--text-muted); padding: 1rem 0;">No appointments booked yet.</p>
+        <% } else { %>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Patient (User)</th>
+                            <th>Lawyer</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% appointments.forEach(apt => { %>
+                            <tr>
+                                <td><%= apt.userId ? apt.userId.name : 'Unknown User' %></td>
+                                <td><%= apt.lawyerId ? apt.lawyerId.name : 'Unknown Lawyer' %></td>
+                                <td><%= apt.date %> at <%= apt.time %></td>
+                                <td>
+                                    <span class="badge badge-<%= apt.status %>" style="text-transform: capitalize;">
+                                        <%= apt.status %>
+                                    </span>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../layout/footer') %>

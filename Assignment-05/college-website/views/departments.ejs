@@ -1,0 +1,75 @@
+<%- include('partials/header') %>
+
+<!-- Page Banner -->
+<section class="page-banner">
+  <div class="container">
+    <h2>Academic Departments</h2>
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Departments</span>
+    </div>
+  </div>
+</section>
+
+<!-- Departments Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Academics</span>
+      <h2>Our Engineering Programs</h2>
+      <p>PCCOE offers a wide range of undergraduate engineering programs with NBA accreditation and modern curriculum.</p>
+    </div>
+    <div class="departments-list">
+      <% departments.forEach((dept, index) => { %>
+      <div class="dept-detail-card" style="animation-delay: <%= index * 0.1 %>s">
+        <div class="dept-detail-icon"><%= dept.icon %></div>
+        <div class="dept-detail-body">
+          <div class="dept-detail-header">
+            <h3><%= dept.name %></h3>
+            <span class="dept-code"><%= dept.code %></span>
+          </div>
+          <p><%= dept.description %></p>
+          <div class="dept-detail-meta">
+            <span>👤 HOD: <strong><%= dept.hod %></strong></span>
+            <span>🎓 Intake: <strong><%= dept.intake %> seats</strong></span>
+            <span>📅 Est: <strong><%= dept.established %></strong></span>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- Facilities Section -->
+<section class="section facilities-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Infrastructure</span>
+      <h2>World-Class Facilities</h2>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-card">
+        <span>🔬</span>
+        <h4>Research Labs</h4>
+        <p>State-of-the-art laboratories for cutting-edge research and experimentation.</p>
+      </div>
+      <div class="facility-card">
+        <span>📚</span>
+        <h4>Central Library</h4>
+        <p>Over 50,000 books, journals, and digital resources for academic enrichment.</p>
+      </div>
+      <div class="facility-card">
+        <span>💡</span>
+        <h4>Innovation Hub</h4>
+        <p>A dedicated space for startups, prototyping, and entrepreneurship.</p>
+      </div>
+      <div class="facility-card">
+        <span>🏋️</span>
+        <h4>Sports Complex</h4>
+        <p>Indoor and outdoor sports facilities for student health and wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

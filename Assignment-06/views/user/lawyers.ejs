@@ -1,0 +1,42 @@
+<%- include('../layout/header') %>
+
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="color: var(--primary);">Find a Lawyer</h1>
+            <p style="color: var(--text-muted);">Browse our fully vetted legal professionals and book your consultation.</p>
+        </div>
+        <a href="/user/dashboard" class="btn btn-outline">Back to Dashboard</a>
+    </div>
+
+    <% if (lawyers.length === 0) { %>
+        <div class="card" style="text-align: center; padding: 3rem;">
+            <p style="color: var(--text-muted); font-size: 1.1rem;">No lawyers are currently registered on the platform. Please check back later.</p>
+        </div>
+    <% } else { %>
+        <div class="grid grid-cols-3">
+            <% lawyers.forEach(lawyer => { %>
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <div style="flex-grow: 1;">
+                        <h3 style="color: var(--text-main); font-size: 1.25rem; margin-bottom: 0.5rem;"><%= lawyer.name %></h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <span class="badge" style="background-color: #EEF2FF; color: var(--primary);"><%= lawyer.specialization %></span>
+                        </div>
+                        
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem;">
+                            <strong>Experience:</strong> <%= lawyer.experience %> years
+                        </p>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                            <strong>Location:</strong> <%= lawyer.location %>
+                        </p>
+                    </div>
+                    
+                    <a href="/user/book/<%= lawyer._id %>" class="btn btn-primary" style="width: 100%;">Book Appointment</a>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../layout/footer') %>

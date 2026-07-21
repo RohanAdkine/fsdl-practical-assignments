@@ -1,0 +1,128 @@
+<%- include('partials/header') %>
+
+<!-- Page Banner -->
+<section class="page-banner">
+  <div class="container">
+    <h2>Add New Student</h2>
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <a href="/students">Students</a> <span>/</span> <span>Add Student</span>
+    </div>
+  </div>
+</section>
+
+<!-- Add Student Form -->
+<section class="section">
+  <div class="container form-container">
+
+    <% if (success) { %>
+    <div class="alert alert-success">
+      ✅ <%= success %>
+      <br><a href="/students">→ View All Students</a>
+    </div>
+    <% } %>
+
+    <% if (error) { %>
+    <div class="alert alert-error">
+      ❌ <%= error %>
+    </div>
+    <% } %>
+
+    <div class="form-card">
+      <div class="form-card-header">
+        <h3>📋 Student Registration Form</h3>
+        <p>Fill in the details below to add a new student record to the college database.</p>
+      </div>
+
+      <form action="/addStudent" method="POST" class="student-form" id="studentForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. Rahul Sharma"
+              required
+              minlength="2"
+            />
+            <small class="field-hint">Enter student's full name</small>
+          </div>
+          <div class="form-group">
+            <label for="rollNumber">Roll Number <span class="required">*</span></label>
+            <input
+              type="text"
+              id="rollNumber"
+              name="rollNumber"
+              placeholder="e.g. CE2023001"
+              required
+            />
+            <small class="field-hint">Unique roll number assigned to the student</small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="department">Department <span class="required">*</span></label>
+            <select id="department" name="department" required>
+              <option value="" disabled selected>-- Select Department --</option>
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Artificial Intelligence & Data Science">Artificial Intelligence & Data Science</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="year">Year <span class="required">*</span></label>
+            <select id="year" name="year" required>
+              <option value="" disabled selected>-- Select Year --</option>
+              <option value="First Year">First Year</option>
+              <option value="Second Year">Second Year</option>
+              <option value="Third Year">Third Year</option>
+              <option value="Fourth Year">Fourth Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. rahul.sharma@pccoe.ac.in"
+              required
+            />
+            <small class="field-hint">Student's official email address</small>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+            ➕ Add Student
+          </button>
+          <a href="/students" class="btn btn-outline">Cancel</a>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="form-note">
+      <strong>Note:</strong> All fields marked with <span class="required">*</span> are mandatory. Roll numbers must be unique for each student.
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('studentForm');
+  const submitBtn = document.getElementById('submitBtn');
+  form.addEventListener('submit', function() {
+    submitBtn.textContent = 'Saving...';
+    submitBtn.disabled = true;
+  });
+</script>
+
+<%- include('partials/footer') %>

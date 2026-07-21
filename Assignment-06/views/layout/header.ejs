@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawyerBooking - Premium Legal Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            LawConnect
+        </a>
+        <div class="navbar-nav">
+            <a href="/" class="nav-link">Home</a>
+            <% if (admin) { %>
+                <a href="/admin/dashboard" class="nav-link">Admin Panel</a>
+                <a href="/logout" class="btn btn-outline">Logout</a>
+            <% } else if (lawyer) { %>
+                <a href="/lawyer/dashboard" class="nav-link">Lawyer Dashboard</a>
+                <a href="/logout" class="btn btn-outline">Logout</a>
+            <% } else if (user) { %>
+                <a href="/user/dashboard" class="nav-link">My Dashboard</a>
+                <a href="/user/lawyers" class="nav-link">Find Lawyers</a>
+                <a href="/logout" class="btn btn-outline">Logout</a>
+            <% } else { %>
+                <a href="/auth/login" class="nav-link">Login</a>
+                <a href="/auth/register" class="btn btn-primary">Register</a>
+            <% } %>
+        </div>
+    </nav>
+    <main class="container">

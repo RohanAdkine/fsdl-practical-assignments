@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-bg text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0a0e1a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-card border border-dark-border rounded-xl backdrop-blur-sm;
+    background: rgba(31, 41, 55, 0.8);
+    backdrop-filter: blur(12px);
+  }
+  
+  .glass-card-hover {
+    @apply glass-card transition-all duration-200;
+  }
+  .glass-card-hover:hover {
+    @apply border-primary-500/40;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-dark-card hover:bg-dark-hover text-gray-300 hover:text-white border border-dark-border hover:border-primary-500/50 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+
+  .btn-danger {
+    @apply px-3 py-1.5 bg-red-900/50 hover:bg-red-800/50 text-red-300 border border-red-800/50 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-blue   { @apply bg-blue-900/50 text-blue-300 border border-blue-700/50; }
+  .badge-green  { @apply bg-green-900/50 text-green-300 border border-green-700/50; }
+  .badge-purple { @apply bg-purple-900/50 text-purple-300 border border-purple-700/50; }
+  .badge-yellow { @apply bg-yellow-900/50 text-yellow-300 border border-yellow-700/50; }
+  .badge-red    { @apply bg-red-900/50 text-red-300 border border-red-700/50; }
+  .badge-cyan   { @apply bg-cyan-900/50 text-cyan-300 border border-cyan-700/50; }
+  .badge-orange { @apply bg-orange-900/50 text-orange-300 border border-orange-700/50; }
+  .badge-pink   { @apply bg-pink-900/50 text-pink-300 border border-pink-700/50; }
+
+  .token-keyword    { @apply text-blue-400; }
+  .token-identifier { @apply text-white; }
+  .token-number     { @apply text-amber-400; }
+  .token-string     { @apply text-green-400; }
+  .token-operator   { @apply text-cyan-400; }
+  .token-comment    { @apply text-gray-500 italic; }
+  .token-delimiter  { @apply text-gray-400; }
+  .token-type       { @apply text-purple-400; }
+
+  .tac-line {
+    @apply font-mono text-sm py-0.5 px-2 rounded transition-colors duration-100 hover:bg-white/5;
+  }
+  
+  .asm-line {
+    @apply font-mono text-sm py-1 px-3 rounded border-l-2 border-transparent transition-all duration-100 hover:bg-white/5;
+  }
+  .asm-mov    { @apply border-l-gray-500; }
+  .asm-add    { @apply border-l-blue-500; }
+  .asm-sub    { @apply border-l-red-500; }
+  .asm-mul    { @apply border-l-green-500; }
+  .asm-div    { @apply border-l-yellow-500; }
+  .asm-cmp    { @apply border-l-purple-500; }
+  .asm-jmp    { @apply border-l-orange-500; }
+  .asm-call   { @apply border-l-cyan-500; }
+  .asm-label  { @apply border-l-pink-500; }
+
+  .pipeline-step {
+    @apply flex flex-col items-center gap-1 cursor-pointer select-none;
+  }
+  .pipeline-step-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 text-lg font-bold border-2;
+  }
+
+  .neon-text-blue {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+  }
+  .neon-text-purple {
+    color: #a78bfa;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
+  }
+  .neon-text-cyan {
+    color: #22d3ee;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+  }
+}

@@ -1,0 +1,74 @@
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>🎓 PCCOE</h3>
+        <p>Pimpri Chinchwad College of Engineering, a premier institution dedicated to excellence in technical education and research since 1999.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/departments">Departments</a></li>
+          <li><a href="/students">Students</a></li>
+          <li><a href="/addStudent">Add Student</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Departments</h3>
+        <ul>
+          <li><a href="/departments">Computer Engineering</a></li>
+          <li><a href="/departments">Information Technology</a></li>
+          <li><a href="/departments">Mechanical Engineering</a></li>
+          <li><a href="/departments">Electronics & Telecom</a></li>
+          <li><a href="/departments">Civil Engineering</a></li>
+          <li><a href="/departments">AI & Data Science</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 Sector 26, Pradhikaran, Nigdi<br>Pune – 411044, Maharashtra</p>
+        <p>📞 020-27653000</p>
+        <p>✉️ admin@pccoe.ac.in</p>
+        <p>🌐 www.pccoepune.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Pimpri Chinchwad College of Engineering, Pune. All Rights Reserved.</p>
+        <p>Affiliated to Savitribai Phule Pune University | NAAC A+ Accredited | NBA Accredited</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // Active nav link highlight
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

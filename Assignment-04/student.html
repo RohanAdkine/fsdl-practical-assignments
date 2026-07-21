@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Tracker Dashboard</title>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+<h1> Student Marks Tracker Dashboard</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Add Student Marks</h3>
+
+        <label>Month</label>
+        <select id="marksMonth">
+            <option>Jan</option><option>Feb</option><option>Mar</option>
+            <option>Apr</option><option>May</option><option>Jun</option>
+            <option>Jul</option><option>Aug</option><option>Sep</option>
+            <option>Oct</option><option>Nov</option><option>Dec</option>
+        </select>
+
+        <label>Subject</label>
+        <select id="subject">
+            <option>Math</option>
+            <option>Science</option>
+            <option>English</option>
+            <option>Computer</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+        </select>
+
+        <label>Marks</label>
+        <input type="number" id="marksValue" placeholder="Enter marks">
+
+        <button onclick="addMarks()">Add Marks</button>
+    </div>
+
+</div>
+
+<div class="balance-card">
+    <h2 id="averageText">Average Marks: 0</h2>
+</div>
+
+<div class="charts">
+
+    <div class="chart-box">
+        <h3>Monthly Marks Trend</h3>
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h3>Monthly Marks Comparison</h3>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h3>Subject-wise Distribution</h3>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+</div>
+
+<!-- JS File Link -->
+<script src="student.js"></script>
+
+</body>
+</html>

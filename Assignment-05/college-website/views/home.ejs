@@ -1,0 +1,148 @@
+<%- include('partials/header') %>
+
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">Welcome to</p>
+    <h2 class="hero-title">Pimpri Chinchwad College<br>of Engineering</h2>
+    <p class="hero-subtitle">Shaping Engineers, Building Futures – Excellence in Technical Education since 1999</p>
+    <div class="hero-actions">
+      <a href="/departments" class="btn btn-primary">Explore Departments</a>
+      <a href="/about" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="container hero-stats-row">
+      <div class="stat-item">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">Years of Excellence</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6000+</span>
+        <span class="stat-label">Students Enrolled</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">300+</span>
+        <span class="stat-label">Expert Faculty</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">95%</span>
+        <span class="stat-label">Placement Record</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Snippet -->
+<section class="section about-snippet">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="section-tag">About Us</span>
+      <h2>A Legacy of Technical Excellence</h2>
+      <p>Pimpri Chinchwad College of Engineering (PCCOE), established in 1999, is one of the premier autonomous engineering colleges in Pune affiliated to Savitribai Phule Pune University. Accredited with <strong>NAAC A+</strong> grade and <strong>NBA</strong> accreditation, we strive for excellence in teaching, research, and innovation.</p>
+      <a href="/about" class="btn btn-primary">Read More</a>
+    </div>
+    <div class="about-cards">
+      <div class="mini-card">
+        <div class="mini-card-icon">🎯</div>
+        <h4>Vision</h4>
+        <p>To be a globally recognized institution in technical education and research.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-icon">🚀</div>
+        <h4>Mission</h4>
+        <p>Provide quality education through excellence in teaching, research and innovation.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-icon">🌟</div>
+        <h4>Values</h4>
+        <p>Integrity, Innovation, Inclusion and commitment to societal needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Departments Highlight -->
+<section class="section departments-highlight">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Academic Programs</span>
+      <h2>Our Departments</h2>
+      <p>Explore our diverse range of undergraduate and postgraduate engineering programs.</p>
+    </div>
+    <div class="dept-grid">
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">💻</span>
+        <h3>Computer Engineering</h3>
+        <p>Intake: 180 seats</p>
+      </a>
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">🌐</span>
+        <h3>Information Technology</h3>
+        <p>Intake: 120 seats</p>
+      </a>
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">⚙️</span>
+        <h3>Mechanical Engineering</h3>
+        <p>Intake: 120 seats</p>
+      </a>
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">📡</span>
+        <h3>Electronics & Telecom</h3>
+        <p>Intake: 120 seats</p>
+      </a>
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">🏗️</span>
+        <h3>Civil Engineering</h3>
+        <p>Intake: 60 seats</p>
+      </a>
+      <a href="/departments" class="dept-card">
+        <span class="dept-icon">🤖</span>
+        <h3>AI & Data Science</h3>
+        <p>Intake: 60 seats</p>
+      </a>
+    </div>
+    <div class="text-center">
+      <a href="/departments" class="btn btn-primary">View All Departments</a>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section class="section news-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Updates</span>
+      <h2>Latest News & Announcements</h2>
+    </div>
+    <div class="news-list">
+      <% news.forEach((item, index) => { %>
+      <div class="news-card" style="animation-delay: <%= index * 0.1 %>s">
+        <div class="news-badge">News</div>
+        <div class="news-body">
+          <h4><%= item.title %></h4>
+          <span class="news-date">📅 <%= item.date %></span>
+        </div>
+        <span class="news-arrow">→</span>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="cta-text">
+      <h2>Manage Student Records</h2>
+      <p>Add, view and manage student data efficiently using our integrated system.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="/students" class="btn btn-white">View Students</a>
+      <a href="/addStudent" class="btn btn-outline-white">+ Add Student</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

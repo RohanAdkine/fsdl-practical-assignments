@@ -1,0 +1,67 @@
+<%- include('../layout/header') %>
+
+<div class="container">
+    <div style="margin-bottom: 2rem;">
+        <h1 style="color: var(--primary);">My Dashboard</h1>
+        <p style="color: var(--text-muted);">Welcome back, <%= user.name %></p>
+    </div>
+
+    <div class="grid grid-cols-2" style="margin-bottom: 3rem;">
+        <div class="card">
+            <h3 class="card-header">Your Bookings</h3>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--text-main);">
+                <%= appointments.length %>
+            </p>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #EEF2FF; border-color: #EEF2FF;">
+            <a href="/user/lawyers" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.75rem 2rem;">Find a Lawyer</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-header">My Appointments</h2>
+        <% if (appointments.length === 0) { %>
+            <p style="color: var(--text-muted); padding: 1rem 0;">You don't have any appointments booked.</p>
+            <a href="/user/lawyers" class="btn btn-outline" style="margin-top: 1rem;">Book your first appointment</a>
+        <% } else { %>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lawyer</th>
+                            <th>Specialization</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% appointments.forEach(apt => { %>
+                            <tr>
+                                <td><strong><%= apt.lawyerId ? apt.lawyerId.name : 'Unknown' %></strong></td>
+                                <td><%= apt.lawyerId ? apt.lawyerId.specialization : 'N/A' %></td>
+                                <td><%= apt.date %> at <%= apt.time %></td>
+                                <td>
+                                    <span class="badge badge-<%= apt.status %>" style="text-transform: capitalize;">
+                                        <%= apt.status %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <% if (apt.status === 'pending') { %>
+                                        <form action="/user/cancel/<%= apt._id %>" method="POST" onsubmit="return confirm('Are you sure you want to cancel this appointment?');" style="display:inline;">
+                                            <button type="submit" class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Cancel</button>
+                                        </form>
+                                    <% } else { %>
+                                        <span style="color: var(--text-muted); font-size: 0.85rem;">Cannot cancel</span>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../layout/footer') %>

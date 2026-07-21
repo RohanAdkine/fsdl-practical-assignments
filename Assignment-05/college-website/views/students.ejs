@@ -1,0 +1,72 @@
+<%- include('partials/header') %>
+
+<!-- Page Banner -->
+<section class="page-banner">
+  <div class="container">
+    <h2>Student Records</h2>
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Students</span>
+    </div>
+  </div>
+</section>
+
+<!-- Students Section -->
+<section class="section">
+  <div class="container">
+
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+
+    <div class="students-toolbar">
+      <div>
+        <h2>Enrolled Students</h2>
+        <p>Total: <strong><%= students.length %></strong> student(s) in database</p>
+      </div>
+      <a href="/addStudent" class="btn btn-primary">+ Add New Student</a>
+    </div>
+
+    <% if (students.length === 0) { %>
+    <div class="empty-state">
+      <div class="empty-icon">👥</div>
+      <h3>No Students Found</h3>
+      <p>No student records in the database yet. Add the first student to get started.</p>
+      <a href="/addStudent" class="btn btn-primary">+ Add First Student</a>
+    </div>
+    <% } else { %>
+    <div class="table-wrapper">
+      <table class="students-table" id="studentsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Roll Number</th>
+            <th>Student Name</th>
+            <th>Department</th>
+            <th>Year</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% students.forEach((student, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><span class="roll-badge"><%= student.rollNumber %></span></td>
+            <td>
+              <div class="student-name-cell">
+                <div class="student-avatar"><%= student.name.charAt(0).toUpperCase() %></div>
+                <%= student.name %>
+              </div>
+            </td>
+            <td><span class="dept-tag"><%= student.department %></span></td>
+            <td><span class="year-tag"><%= student.year %></span></td>
+            <td><a href="mailto:<%= student.email %>" class="email-link"><%= student.email %></a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

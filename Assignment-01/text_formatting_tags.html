@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Text Formatting Tags</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #333;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    code {
+      background-color: #f9f9f9;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML Text Formatting Tags</h1>
+
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Rendered Output</th>
+    </tr>
+
+    <tr>
+      <td><code>&lt;b&gt;</code></td>
+      <td>Makes text bold.</td>
+      <td><code>&lt;b&gt;Bold Text&lt;/b&gt;</code></td>
+      <td><b>Bold Text</b></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;strong&gt;</code></td>
+      <td>Indicates strong importance (usually bold).</td>
+      <td><code>&lt;strong&gt;Important Text&lt;/strong&gt;</code></td>
+      <td><strong>Important Text</strong></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;i&gt;</code></td>
+      <td>Italic text.</td>
+      <td><code>&lt;i&gt;Italic Text&lt;/i&gt;</code></td>
+      <td><i>Italic Text</i></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;em&gt;</code></td>
+      <td>Emphasized text (usually italic).</td>
+      <td><code>&lt;em&gt;Emphasized Text&lt;/em&gt;</code></td>
+      <td><em>Emphasized Text</em></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;u&gt;</code></td>
+      <td>Underlined text.</td>
+      <td><code>&lt;u&gt;Underlined Text&lt;/u&gt;</code></td>
+      <td><u>Underlined Text</u></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;mark&gt;</code></td>
+      <td>Highlighted/marked text.</td>
+      <td><code>&lt;mark&gt;Marked Text&lt;/mark&gt;</code></td>
+      <td><mark>Marked Text</mark></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;small&gt;</code></td>
+      <td>Smaller text.</td>
+      <td><code>&lt;small&gt;Small Text&lt;/small&gt;</code></td>
+      <td><small>Small Text</small></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;big&gt;</code></td>
+      <td>Big text (not supported in HTML5 but often asked in labs).</td>
+      <td><code>&lt;big&gt;Big Text&lt;/big&gt;</code></td>
+      <td><big>Big Text</big></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;sub&gt;</code></td>
+      <td>Subscript text.</td>
+      <td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+      <td>H<sub>2</sub>O</td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;sup&gt;</code></td>
+      <td>Superscript text.</td>
+      <td><code>x&lt;sup&gt;2&lt;/sup&gt;</code></td>
+      <td>x<sup>2</sup></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;del&gt;</code></td>
+      <td>Deleted/strikethrough text.</td>
+      <td><code>&lt;del&gt;Deleted Text&lt;/del&gt;</code></td>
+      <td><del>Deleted Text</del></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;ins&gt;</code></td>
+      <td>Inserted text (usually underlined).</td>
+      <td><code>&lt;ins&gt;Inserted Text&lt;/ins&gt;</code></td>
+      <td><ins>Inserted Text</ins></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;code&gt;</code></td>
+      <td>Inline computer code.</td>
+      <td><code>&lt;code&gt;code();&lt;/code&gt;</code></td>
+      <td><code>code();</code></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;kbd&gt;</code></td>
+      <td>Keyboard input.</td>
+      <td><code>&lt;kbd&gt;Ctrl + C&lt;/kbd&gt;</code></td>
+      <td><kbd>Ctrl + C</kbd></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;samp&gt;</code></td>
+      <td>Sample output from a program.</td>
+      <td><code>&lt;samp&gt;Sample Output&lt;/samp&gt;</code></td>
+      <td><samp>Sample Output</samp></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;var&gt;</code></td>
+      <td>Variable in a mathematical expression or programming context.</td>
+      <td><code>&lt;var&gt;x&lt;/var&gt; = 10</code></td>
+      <td><var>x</var> = 10</td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;abbr&gt;</code></td>
+      <td>Abbreviation or acronym.</td>
+      <td><code>&lt;abbr title="World Health Organization"&gt;WHO&lt;/abbr&gt;</code></td>
+      <td><abbr title="World Health Organization">WHO</abbr></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;cite&gt;</code></td>
+      <td>Title of a work (citation).</td>
+      <td><code>&lt;cite&gt;HTML Guide&lt;/cite&gt;</code></td>
+      <td><cite>HTML Guide</cite></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;q&gt;</code></td>
+      <td>Short inline quotation.</td>
+      <td><code>&lt;q&gt;Inline quote&lt;/q&gt;</code></td>
+      <td><q>Inline quote</q></td>
+    </tr>
+
+    <tr>
+      <td><code>&lt;span&gt;</code></td>
+      <td>Generic inline container for text.</td>
+      <td><code>&lt;span style="color:red;"&gt;Red Text&lt;/span&gt;</code></td>
+      <td><span style="color:red;">Red Text</span></td>
+    </tr>
+
+  </table>
+
+</body>
+</html>
